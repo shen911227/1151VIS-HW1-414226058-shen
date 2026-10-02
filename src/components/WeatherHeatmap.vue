@@ -3,14 +3,11 @@
     <h2>西雅圖氣象資料 - 年度每日均溫</h2>
     <p>資料來源：Vega Datasets 數據</p>
 
-    <!-- 載入中與錯誤提示 -->
     <div v-if="loading" class="loading">正在載入資料...</div>
     <div v-if="errorMsg" class="error">{{ errorMsg }}</div>
 
-    <!-- SVG 畫布容器 -->
     <svg ref="svgRef"></svg>
 
-    <!-- 提示框 (Tooltip) -->
     <div class="tooltip" ref="tooltipRef"></div>
   </div>
 </template>
@@ -162,7 +159,7 @@ onMounted(async () => {
 
   } catch (error) {
     loading.value = false
-    errorMsg.value = "載入氣象資料失敗，請檢查網路連線或主控台錯誤。"
+    errorMsg.value = "載入氣象資料失敗。"
     console.error("載入氣象資料失敗:", error)
   }
 })
