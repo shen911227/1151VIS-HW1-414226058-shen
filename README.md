@@ -4,6 +4,21 @@
 <img width="1142" height="637" alt="螢幕擷取畫面 2026-10-08 201402" src="https://github.com/user-attachments/assets/b9d8dbcf-aa4e-4424-97a8-1b2d25b8a15a" />
 
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+製作流程；
+1. 載入氣象資料
+讀取公開的西雅圖氣象資料，透過提供的最高溫 (temp_max)與最低溫 (temp_min)計算每日
+平均氣溫，並整理日期的格式。
+2. 設定 SVG 與顏色比例尺
+建立 SVG 畫布與群組，依據氣溫設定顏色漸層(黃-橘-紅漸層），使用資料中的最低溫與最高
+溫作為色彩對應的上下限。
+3. 計算日曆網格座標
+利用 D3 時間函數取得日期的星期與週次，決定每個日期方塊在熱圖中的位置。
+4. 加入滑鼠互動
+使用 mouseover、mousemove 和 mouseout 事件，顯示日期與平均氣溫的提示框。
+5. 繪製溫度圖例
+利用色彩漸層、線性比例尺與座標軸，呈現顏色對應的氣溫範圍。
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+相關操作:
+檢視各日期的詳細氣溫
+將滑鼠游標移動到熱力圖上的任何一個小方格（代表那一天的平均氣溫）。
+游標旁邊會浮現一個黑色小視窗，顯示該日的日期與平均氣溫（像是2015-01-05, 10.8 °C）。
